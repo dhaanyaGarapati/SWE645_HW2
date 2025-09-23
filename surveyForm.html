@@ -1,0 +1,209 @@
+<!-- Lasya Reddy, Mekala (G01473483)-->
+
+<!-- This is the student survey form page consists of all the requirements -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Survey Form</title>
+
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="surveyForm.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="page2">
+    <div class="logo">
+        <!-- this is the logo on top of the form page -->
+        <img src="gmuLogo.jpg" alt="GMU Logo" class="img-fluid">
+    </div>
+    <div class="heading">
+        <!-- survey form heading -->
+        <h1> Survey Form </h1>
+    </div>
+    <br>
+    <div class="surveyform">
+        <form class= "form-horizontal" autocomplete="on">
+            <!--first name text box-->
+            <div class= "form-group">
+                <label class="control-label col-sm-2 required" for="fname">1. First Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="fname" placeholder="Enter your First Name" name = "fname" required autofocus>
+                </div>
+            </div>
+            <!--last name text box-->
+            <div class="form-group">
+                <label class="control-label col-sm-2 required" for="lname">2. Last Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lname" placeholder="Enter your Last Name" name = "lname" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2 required" for="address">3. Address :</label>
+                <!--Street address text box-->
+                <div class="col-sm-10">
+                    <label class="control-label col-sm-2 required" for="street"> I. Street:</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter your house number and street address" name = "address" required> 
+                    <span id="addressError"></span>
+                </div> 
+                <div class="col-sm-offset-2 col-sm-10">
+                <br>
+                <!--city name text box-->
+                <label class="control-label col-sm-2 required" for="city"> III. City:</label>
+                <input type="text" id="city" name="city" placeholder ="Enter City name" required>
+                <br>
+                <span id="cityError"></span>
+                <!--State name text box-->
+                <label class="control-label col-sm-2 required" for="state">IV. State:</label>
+                <input type="text" id="state" name="state" placeholder ="Enter State name" required><br>
+                <span id="stateError" ></span>
+                <!--Zip code text box-->
+                <label class="control-label col-sm-2 required" for="zipcode"> II. Zipcode:</label>
+                <input type="text" id="zipcode" name="zipcode" placeholder ="Enter Zipcode" required>
+                <br>
+                <span id = "zipcodeError"></span>
+                </div>
+            </div>
+            
+            <!--Telephone number-->
+            <div class="form-group">
+                <label class="control-label col-sm-10 required" for="phone">4. Contact Number :</label>
+                <div class="col-sm-10">
+                    <input type="tel" class="form-control" id="phone" placeholder="Phone Number" name="phone" required>
+                    <span id="phoneError"></span>
+                </div>
+            </div>
+
+            <!--Email-->
+            <div class="form-group">
+                <label class="control-label col-sm-2 required" for="email">5. Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" placeholder="name@domain.com" name = "email" required> 
+                </div>
+            </div>
+
+            <!--Date of Survey-->
+            <div class="form-group">
+                <label class="control-label col-sm-10 required" for="date">6. Enter the date of Survey:</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="date" placeholder="mm/dd/yyyy" name = "date" required>
+                </div>
+            </div>
+            
+            <!--Checkboxes that allow student to select what they liked in campus-->
+            <div class="form-group">
+                <label class="control-label col-sm-10" for="campusvisit1">7. Select all that you liked during the campus visit :</label>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" id = "campusvisit1" name ="campusvisit" value=""> Location</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" name ="campusvisit" value=""> Campus</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" name ="campusvisit" value=""> Atmosphere</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" name ="campusvisit" value=""> Students</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" name ="campusvisit" value=""> Sports</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" name ="campusvisit" value=""> Clubs</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" name ="campusvisit" value=""> Dorm Rooms</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label class="control-label col-sm-10"><input type="checkbox" name ="campusvisit" value=""> Food</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Radio buttons for students to select in what they are intrested in campus-->
+            <div class="form-group">
+                <label class="control-label col-sm-10" for="campusvisit2">8. What first attracted you to our university ?</label>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="radio">
+                        <label class="control-label col-sm-10"><input type="radio" id = "campusvisit2" name="optradio"> Friends</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="radio">
+                        <label class="control-label col-sm-10"><input type="radio" name="optradio"> Television</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="radio">
+                        <label class="control-label col-sm-10"><input type="radio" name="optradio"> Internet</label>
+                    </div>
+                </div>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <div class="radio">
+                        <label class="control-label col-sm-10"><input type="radio" name="optradio"> Other</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Drop down list of options about likelihood-->
+            <div class="form-group">
+                <label class="control-label col-sm-10 required" for="campusvisit3">9. How likely are you to recommend this school to other prospective students? </label>
+                <label class="control-label col-sm-10" for="campusvisit3">
+                    <input type="text" id="ist"  id = "campusvisit3" placeholder="Select your option" list="dropdown" required>
+                    <datalist id="dropdown">
+                        <option value="Likely">
+                        <option value="Very Likely">
+                        <option value="UnLikely">
+                    </datalist>
+                </label>
+            </div>
+            
+            <!--Raffle text box-->
+            <div class="form-group">
+                <label class="control-label col-sm-10" for="raffle">10. Enter your numbers for a chance to win a free movie ticket 🎉 🍿: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="raffle" name="raffle" placeholder= "Please enter at least 10 numbers, separated by commas (1-100)"required>
+                    <small class="form-text text-muted">*** These numbers will be used to announce whether you win a free movie ticket! *** </small>
+                </div>
+            </div>
+            
+            <!--Text area for additional comments-->
+            <div class="form-group">
+                <label class="control-label col-sm-10" for="campusvisit4">11. Any Additional Comments :</label>
+                <div class = "col-sm-offset-2 col-sm-10">
+                    <textarea class="form-control" rows="4" id="campusvisit4"></textarea>
+                </div>
+            </div>
+            
+            <!--Submit and cancel buttons at the end of the form-->
+            <div class="form-group">
+                <div class="text-center">
+                    <!--Submit button which submits the form details-->
+                    <button type="submit" class="btn btn-warning btn-lg" onclick="EnquireButton()">Submit</button>
+                    
+                    <!-- Reset Button which clears all the fields in the form -->
+                    <button type="reset" id="reset" class="btn btn-success btn-lg">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
