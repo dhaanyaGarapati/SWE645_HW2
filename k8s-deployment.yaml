@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swe645-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: swe645-app
+  template:
+    metadata:
+      labels:
+        app: swe645-app
+    spec:
+      containers:
+      - name: swe645-app
+        image: trinaya11/survey-web-app:1.0
+        ports:
+        - containerPort: 8080
