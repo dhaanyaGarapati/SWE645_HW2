@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Survey</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    .required:after { content:" *"; color: red; }
+  </style>
+</head>
+<body class="w3-light-grey">
+
+<div class="w3-content w3-margin-top" style="max-width:900px;">
+  <div class="w3-card-4 w3-white w3-padding">
+    <h2 class="w3-text-teal">Student Survey Form</h2>
+    <form class="w3-container" action="#" method="post">
+      
+      <!-- Personal Info -->
+      <label class="required">First Name</label>
+      <input class="w3-input w3-border" type="text" name="firstname" required>
+      
+      <label class="required">Last Name</label>
+      <input class="w3-input w3-border" type="text" name="lastname" required>
+
+      <label class="required">Street Address</label>
+      <input class="w3-input w3-border" type="text" name="street" required>
+
+      <label class="required">City</label>
+      <input class="w3-input w3-border" type="text" name="city" required>
+
+      <label class="required">State</label>
+      <input class="w3-input w3-border" type="text" name="state" required>
+
+      <label class="required">Zip</label>
+      <input class="w3-input w3-border" type="text" name="zip" required>
+
+      <label class="required">Telephone Number</label>
+      <input class="w3-input w3-border" type="tel" name="telephone" required>
+
+      <label class="required">E-mail</label>
+      <input class="w3-input w3-border" type="email" name="email" required>
+
+      <label class="required">Date of Survey</label>
+      <input class="w3-input w3-border" type="date" name="surveydate" required>
+
+      <hr>
+
+      <!-- Checkboxes -->
+      <p class="w3-large w3-text-teal"><b>What did you like most about the campus?</b></p>
+      <input class="w3-check" type="checkbox" name="like" value="students"> Students<br>
+      <input class="w3-check" type="checkbox" name="like" value="location"> Location<br>
+      <input class="w3-check" type="checkbox" name="like" value="campus"> Campus<br>
+      <input class="w3-check" type="checkbox" name="like" value="atmosphere"> Atmosphere<br>
+      <input class="w3-check" type="checkbox" name="like" value="dorms"> Dorm Rooms<br>
+      <input class="w3-check" type="checkbox" name="like" value="sports"> Sports<br>
+
+      <hr>
+
+      <!-- Radio buttons -->
+      <p class="w3-large w3-text-teal"><b>How did you become interested in the university?</b></p>
+      <input class="w3-radio" type="radio" name="interest" value="friends" required> Friends<br>
+      <input class="w3-radio" type="radio" name="interest" value="television"> Television<br>
+      <input class="w3-radio" type="radio" name="interest" value="internet"> Internet<br>
+      <input class="w3-radio" type="radio" name="interest" value="other"> Other<br>
+
+      <hr>
+
+      <!-- Dropdown -->
+      <label class="w3-large w3-text-teal"><b>Likelihood of recommending this school:</b></label>
+      <select class="w3-select w3-border" name="recommend">
+        <option value="verylikely">Very Likely</option>
+        <option value="likely">Likely</option>
+        <option value="unlikely">Unlikely</option>
+      </select>
+
+      <hr>
+
+      <!-- Raffle -->
+      <label class="required">Raffle (enter 10+ numbers, comma separated, between 1-100)</label>
+      <input class="w3-input w3-border" type="text" name="raffle" placeholder="e.g., 5,12,33,47,58,66,72,81,95,100" required>
+
+      <hr>
+
+      <!-- Additional comments -->
+      <label>Additional Comments</label>
+      <textarea class="w3-input w3-border" name="comments" rows="4"></textarea>
+
+      <hr>
+
+      <!-- Buttons -->
+      <button class="w3-button w3-teal w3-margin-right" type="submit">Submit</button>
+      <button class="w3-button w3-grey" type="reset">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Back to <a href="index.html" class="w3-text-white">Homepage</a></p>
+</footer>
+
+</body>
+</html>
