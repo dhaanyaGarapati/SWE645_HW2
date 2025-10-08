@@ -1,13 +1,14 @@
+//Supraja Naraharisetty(G01507868)
+//Trinaya Kodavati (G01506073)
+//Lasya Reddy Mekala (G01473683)
+//Dhaanya S Garapati (G01512900)
 pipeline {
   agent any
-
-  triggers { githubPush() }   // make sure the job UI also has the GitHub trigger checked
-
+  triggers { githubPush() }  
   environment {
-    // GitHub checkout is handled by Jenkins (SCM), so no repo creds here
     PROJECT   = 'swe645-a2'
-    LOCATION  = 'us-central1-a'   // zone or region
-    LOC_FLAG  = '--zone'          // change to '--region' if you ever use a regional cluster
+    LOCATION  = 'us-central1-a' 
+    LOC_FLAG  = '--zone'         
     CLUSTER   = 'swe645-cluster'
 
     NAMESPACE = 'swe645'
@@ -15,17 +16,13 @@ pipeline {
     IMAGE     = 'trinaya11/survey-web-app'
     TAG       = "${env.BUILD_NUMBER}"
   }
-
   stages {
-
     stage('Checkout') {
       steps {
-        // With Pipeline-from-SCM this simply refreshes the workspace if needed
         checkout scm
-        sh 'ls -la'              // optional: just to show files are here
+        sh 'ls -la'       
       }
     }
-
     stage('Build Docker image') {
       steps {
         sh '''
@@ -34,7 +31,6 @@ pipeline {
         '''
       }
     }
-
     stage('Push to Docker Hub') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerhub',
@@ -49,7 +45,6 @@ pipeline {
         }
       }
     }
-
     stage('GCP auth & connect to GKE') {
       steps {
         withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
@@ -64,16 +59,13 @@ pipeline {
         }
       }
     }
-
     stage('Deploy to Kubernetes (3 replicas)') {
       steps {
         sh '''
           set -eu
-
           # Ensure namespace and service exist (idempotent)
           kubectl create namespace ${NAMESPACE} --dry-run=client -o yaml | kubectl apply -f -
           (kubectl -n ${NAMESPACE} apply -f k8s-service.yaml) || true
-
           # Create or update deployment
           if kubectl -n ${NAMESPACE} get deploy/${DEPLOY} >/dev/null 2>&1; then
             kubectl -n ${NAMESPACE} set image deploy/${DEPLOY} ${DEPLOY}=${IMAGE}:${TAG} \
@@ -85,7 +77,6 @@ pipeline {
               || kubectl -n ${NAMESPACE} set image deploy/${DEPLOY} web=${IMAGE}:${TAG}
             kubectl -n ${NAMESPACE} scale deploy/${DEPLOY} --replicas=3
           fi
-
           kubectl -n ${NAMESPACE} rollout status deploy/${DEPLOY} --timeout=180s
           echo "----- Service status -----"
           kubectl -n ${NAMESPACE} get svc -o wide
@@ -93,13 +84,12 @@ pipeline {
       }
     }
   }
-
   post {
     success {
-      echo "✅ Deployed ${IMAGE}:${TAG} to namespace ${NAMESPACE}"
+      echo "Deployed ${IMAGE}:${TAG} to namespace ${NAMESPACE}"
     }
     failure {
-      echo "❌ Build/Deploy failed — see the failing stage logs"
+      echo "Build/Deploy failed — see the failing stage logs"
     }
   }
 }
